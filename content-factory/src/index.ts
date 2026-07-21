@@ -2,10 +2,12 @@ export * from './schemas/index.js'
 export * from './providers/interfaces.js'
 export * from './providers/registry.js'
 export { MockTTSProvider } from './providers/tts/mock.js'
+export { HiggsfieldTTSProvider, type HiggsfieldTtsConfig } from './providers/tts/higgsfield.js'
 export {
   ProviderMarksAlignmentProvider,
   ForcedAlignmentProvider,
 } from './providers/alignment/mock.js'
+export { selectAlignmentStrategy, alignAuto, type AlignmentStrategy } from './providers/alignment/route.js'
 export { readWavDurationMs, writeSilentWav } from './audio/wav.js'
 export { buildTimeline } from './timeline/build-timeline.js'
 export { computeBoundaries } from './timeline/scene-split.js'

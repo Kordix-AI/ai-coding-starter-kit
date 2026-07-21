@@ -1,0 +1,22 @@
+{
+  "experiment": "Option 1 — echter TTS + Timing-Check",
+  "date": "2026-07-21",
+  "provider": "higgsfield",
+  "model": "seed_audio",
+  "engine": "ByteDance Seed Audio 1.0",
+  "voice": { "name": "Cillian", "voice_id": "d8ba9f14-8a24-44db-932b-99e16c45bd32", "type": "preset", "gender": "male" },
+  "job_id": "c32b6871-df55-40ad-ac6f-93af9d3cd1a5",
+  "prompt_source": "channels/hidden-rush demo script (Spotlight Effect, 8 Segmente)",
+  "cost_credits": 4.8,
+  "output": {
+    "format": "wav",
+    "sample_rate": 24000,
+    "duration_sec": 45.96,
+    "provides_word_timestamps": false,
+    "provides_sentence_timestamps": false,
+    "extra_outputs": ["waveform.json (Amplitude, KEIN Timing)"]
+  },
+  "finding": "seed_audio liefert Audio + Dauer + Waveform, aber KEINE Wort-/Satz-Zeitmarken. Prinzip #2 verifiziert: reale TTS erfordert Forced Alignment.",
+  "session_note": "Media-Host (cloudfront) durch Egress-Policy blockiert (403) — WAV in dieser Session nicht ladbar. Download/Alignment gehören in den Worker (erlaubter Egress + ffmpeg + Aligner).",
+  "cross_check": "Echte Dauer 45.96s ≈ Mock-Dauer 45.36s → WPM-Annahme des Mocks realistisch."
+}

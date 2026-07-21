@@ -8,9 +8,10 @@ import type { ProviderMeta, ProviderRole, CapabilityStatus } from './interfaces.
 export const CAPABILITY_REGISTRY: ProviderMeta[] = [
   { name: 'firecrawl', role: 'research', status: 'available', notes: 'Web-Suche/Scrape/Extract via MCP.' },
   { name: 'claude', role: 'llm', status: 'available', notes: '@anthropic-ai/sdk (im OS-Repo etabliert).' },
-  { name: 'mock-tts', role: 'tts', status: 'available', notes: 'MVP-Mock. Echt: Higgsfield generate_audio/create_voice (Wort-Timing prüfen).' },
-  { name: 'provider-marks', role: 'alignment', status: 'available', notes: 'Nutzt TTS-Marks.' },
-  { name: 'forced-alignment', role: 'alignment', status: 'not_configured', notes: 'WhisperX/aeneas Python-Worker nötig, falls TTS keine Marks liefert.' },
+  { name: 'mock-tts', role: 'tts', status: 'available', notes: 'MVP-Mock mit Marks.' },
+  { name: 'higgsfield-seed-audio', role: 'tts', status: 'configurable', notes: 'VERIFIZIERT: seed_audio 24kHz WAV, KEINE Wort-Marks. Worker-HTTP-Client nötig.' },
+  { name: 'provider-marks', role: 'alignment', status: 'available', notes: 'Nutzt TTS-Marks (falls Provider sie liefert).' },
+  { name: 'forced-alignment', role: 'alignment', status: 'not_configured', notes: 'PFLICHT für seed_audio: WhisperX/faster-whisper Worker (Wort-Timestamps).' },
   { name: 'higgsfield-image', role: 'image', status: 'available', notes: 'generate_image via MCP (Kosten-Gate).' },
   { name: 'higgsfield-i2v', role: 'video', status: 'available', notes: 'generate_video (I2V) via MCP (Kosten-Gate, selektiv).' },
   { name: 'canva', role: 'thumbnail', status: 'available', notes: 'Thumbnails/Designvorlagen via MCP.' },
