@@ -1,0 +1,13 @@
+node_modules/
+dist/
+*.log
+# Media-Master & abgeleitete Renders gehören NICHT ins Git (Storage-Strategie, große Binaries)
+videos/**/audio/*.wav
+videos/**/audio/*.mp3
+videos/**/assets/**
+videos/**/renders/*.mp4
+# aber Metadaten/Artefakte (json/md/srt/vtt) bleiben versioniert
+!videos/**/*.json
+!videos/**/*.md
+!videos/**/*.srt
+!videos/**/*.vtt

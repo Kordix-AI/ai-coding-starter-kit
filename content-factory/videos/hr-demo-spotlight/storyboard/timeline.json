@@ -1,0 +1,1038 @@
+{
+  "video_id": "hr-demo-spotlight",
+  "audio_duration_ms": 45355,
+  "fps": 30,
+  "alignment_source": "provider_marks",
+  "scenes": [
+    {
+      "scene_id": "S001",
+      "start_ms": 0,
+      "end_ms": 3675,
+      "duration_ms": 3675,
+      "vo_segment_ids": [
+        "VO001"
+      ],
+      "vo_text": "You walk into a room and feel every eye land on you.",
+      "words": [
+        {
+          "text": "You",
+          "start_ms": 150,
+          "end_ms": 330,
+          "confidence": 0.99
+        },
+        {
+          "text": "walk",
+          "start_ms": 400,
+          "end_ms": 620,
+          "confidence": 0.99
+        },
+        {
+          "text": "into",
+          "start_ms": 690,
+          "end_ms": 910,
+          "confidence": 0.99
+        },
+        {
+          "text": "a",
+          "start_ms": 980,
+          "end_ms": 1160,
+          "confidence": 0.99
+        },
+        {
+          "text": "room",
+          "start_ms": 1230,
+          "end_ms": 1450,
+          "confidence": 0.99
+        },
+        {
+          "text": "and",
+          "start_ms": 1520,
+          "end_ms": 1700,
+          "confidence": 0.99
+        },
+        {
+          "text": "feel",
+          "start_ms": 1770,
+          "end_ms": 1990,
+          "confidence": 0.99
+        },
+        {
+          "text": "every",
+          "start_ms": 2060,
+          "end_ms": 2335,
+          "confidence": 0.99
+        },
+        {
+          "text": "eye",
+          "start_ms": 2405,
+          "end_ms": 2585,
+          "confidence": 0.99
+        },
+        {
+          "text": "land",
+          "start_ms": 2655,
+          "end_ms": 2875,
+          "confidence": 0.99
+        },
+        {
+          "text": "on",
+          "start_ms": 2945,
+          "end_ms": 3125,
+          "confidence": 0.99
+        },
+        {
+          "text": "you.",
+          "start_ms": 3195,
+          "end_ms": 3415,
+          "confidence": 0.99
+        }
+      ],
+      "narrative_function": "hook",
+      "visual_template": "stickman_character",
+      "visual_description": "stickman_character — hook",
+      "image_prompt": "stickman_character scene, psychology style | palette #070B1E / #0E1430 / #38E5FF / #7B81FF, consistent 3px stickman line | depicts: You walk into a room and feel every eye land on you. | avoid: watermark, extra limbs, unreadable text, brand logos, distorted faces",
+      "video_prompt": null,
+      "reference_asset_ids": [],
+      "motion": "slow_push_in",
+      "camera": "medium_wide",
+      "on_screen_text": null,
+      "sfx": [],
+      "music_state": "tension_low",
+      "transition_out": "cut",
+      "source_claim_ids": [],
+      "asset_id": null,
+      "status": "planned"
+    },
+    {
+      "scene_id": "S002",
+      "start_ms": 3675,
+      "end_ms": 8915,
+      "duration_ms": 5240,
+      "vo_segment_ids": [
+        "VO002"
+      ],
+      "vo_text": "Here is the quiet truth. Almost no one is watching you as closely as you think.",
+      "words": [
+        {
+          "text": "Here",
+          "start_ms": 3675,
+          "end_ms": 3895,
+          "confidence": 0.99
+        },
+        {
+          "text": "is",
+          "start_ms": 3965,
+          "end_ms": 4145,
+          "confidence": 0.99
+        },
+        {
+          "text": "the",
+          "start_ms": 4215,
+          "end_ms": 4395,
+          "confidence": 0.99
+        },
+        {
+          "text": "quiet",
+          "start_ms": 4465,
+          "end_ms": 4740,
+          "confidence": 0.99
+        },
+        {
+          "text": "truth.",
+          "start_ms": 4810,
+          "end_ms": 5140,
+          "confidence": 0.99
+        },
+        {
+          "text": "Almost",
+          "start_ms": 5210,
+          "end_ms": 5540,
+          "confidence": 0.99
+        },
+        {
+          "text": "no",
+          "start_ms": 5610,
+          "end_ms": 5790,
+          "confidence": 0.99
+        },
+        {
+          "text": "one",
+          "start_ms": 5860,
+          "end_ms": 6040,
+          "confidence": 0.99
+        },
+        {
+          "text": "is",
+          "start_ms": 6110,
+          "end_ms": 6290,
+          "confidence": 0.99
+        },
+        {
+          "text": "watching",
+          "start_ms": 6360,
+          "end_ms": 6800,
+          "confidence": 0.99
+        },
+        {
+          "text": "you",
+          "start_ms": 6870,
+          "end_ms": 7050,
+          "confidence": 0.99
+        },
+        {
+          "text": "as",
+          "start_ms": 7120,
+          "end_ms": 7300,
+          "confidence": 0.99
+        },
+        {
+          "text": "closely",
+          "start_ms": 7370,
+          "end_ms": 7755,
+          "confidence": 0.99
+        },
+        {
+          "text": "as",
+          "start_ms": 7825,
+          "end_ms": 8005,
+          "confidence": 0.99
+        },
+        {
+          "text": "you",
+          "start_ms": 8075,
+          "end_ms": 8255,
+          "confidence": 0.99
+        },
+        {
+          "text": "think.",
+          "start_ms": 8325,
+          "end_ms": 8655,
+          "confidence": 0.99
+        }
+      ],
+      "narrative_function": "setup",
+      "visual_template": "stickman_character",
+      "visual_description": "stickman_character — setup",
+      "image_prompt": "stickman_character scene, psychology style | palette #070B1E / #0E1430 / #38E5FF / #7B81FF, consistent 3px stickman line | depicts: Here is the quiet truth. Almost no one is watching you as closely as you think. | avoid: watermark, extra limbs, unreadable text, brand logos, distorted faces",
+      "video_prompt": null,
+      "reference_asset_ids": [],
+      "motion": "slow_push_in",
+      "camera": "medium_wide",
+      "on_screen_text": null,
+      "sfx": [],
+      "music_state": "bed_low",
+      "transition_out": "cut",
+      "source_claim_ids": [],
+      "asset_id": null,
+      "status": "planned"
+    },
+    {
+      "scene_id": "S003",
+      "start_ms": 8915,
+      "end_ms": 15805,
+      "duration_ms": 6890,
+      "vo_segment_ids": [
+        "VO003"
+      ],
+      "vo_text": "Psychologists call it the spotlight effect, the sense that our actions are noticed far more than they really are.",
+      "words": [
+        {
+          "text": "Psychologists",
+          "start_ms": 8915,
+          "end_ms": 9630,
+          "confidence": 0.99
+        },
+        {
+          "text": "call",
+          "start_ms": 9700,
+          "end_ms": 9920,
+          "confidence": 0.99
+        },
+        {
+          "text": "it",
+          "start_ms": 9990,
+          "end_ms": 10170,
+          "confidence": 0.99
+        },
+        {
+          "text": "the",
+          "start_ms": 10240,
+          "end_ms": 10420,
+          "confidence": 0.99
+        },
+        {
+          "text": "spotlight",
+          "start_ms": 10490,
+          "end_ms": 10985,
+          "confidence": 0.99
+        },
+        {
+          "text": "effect,",
+          "start_ms": 11055,
+          "end_ms": 11440,
+          "confidence": 0.99
+        },
+        {
+          "text": "the",
+          "start_ms": 11510,
+          "end_ms": 11690,
+          "confidence": 0.99
+        },
+        {
+          "text": "sense",
+          "start_ms": 11760,
+          "end_ms": 12035,
+          "confidence": 0.99
+        },
+        {
+          "text": "that",
+          "start_ms": 12105,
+          "end_ms": 12325,
+          "confidence": 0.99
+        },
+        {
+          "text": "our",
+          "start_ms": 12395,
+          "end_ms": 12575,
+          "confidence": 0.99
+        },
+        {
+          "text": "actions",
+          "start_ms": 12645,
+          "end_ms": 13030,
+          "confidence": 0.99
+        },
+        {
+          "text": "are",
+          "start_ms": 13100,
+          "end_ms": 13280,
+          "confidence": 0.99
+        },
+        {
+          "text": "noticed",
+          "start_ms": 13350,
+          "end_ms": 13735,
+          "confidence": 0.99
+        },
+        {
+          "text": "far",
+          "start_ms": 13805,
+          "end_ms": 13985,
+          "confidence": 0.99
+        },
+        {
+          "text": "more",
+          "start_ms": 14055,
+          "end_ms": 14275,
+          "confidence": 0.99
+        },
+        {
+          "text": "than",
+          "start_ms": 14345,
+          "end_ms": 14565,
+          "confidence": 0.99
+        },
+        {
+          "text": "they",
+          "start_ms": 14635,
+          "end_ms": 14855,
+          "confidence": 0.99
+        },
+        {
+          "text": "really",
+          "start_ms": 14925,
+          "end_ms": 15255,
+          "confidence": 0.99
+        },
+        {
+          "text": "are.",
+          "start_ms": 15325,
+          "end_ms": 15545,
+          "confidence": 0.99
+        }
+      ],
+      "narrative_function": "tension",
+      "visual_template": "two_character_interaction",
+      "visual_description": "two_character_interaction — tension",
+      "image_prompt": "two_character_interaction scene, psychology style | palette #070B1E / #0E1430 / #38E5FF / #7B81FF, consistent 3px stickman line | depicts: Psychologists call it the spotlight effect, the sense that our actions are noticed far mor… | avoid: watermark, extra limbs, unreadable text, brand logos, distorted faces",
+      "video_prompt": null,
+      "reference_asset_ids": [],
+      "motion": "slow_push_in",
+      "camera": "medium_wide",
+      "on_screen_text": null,
+      "sfx": [],
+      "music_state": "tension_mid",
+      "transition_out": "cut",
+      "source_claim_ids": [
+        "C1"
+      ],
+      "asset_id": null,
+      "status": "planned"
+    },
+    {
+      "scene_id": "S004",
+      "start_ms": 15805,
+      "end_ms": 24535,
+      "duration_ms": 8730,
+      "vo_segment_ids": [
+        "VO004"
+      ],
+      "vo_text": "In one study, students wore an embarrassing shirt and guessed that nearly half the room would notice. The real number was closer to a fifth.",
+      "words": [
+        {
+          "text": "In",
+          "start_ms": 15805,
+          "end_ms": 15985,
+          "confidence": 0.99
+        },
+        {
+          "text": "one",
+          "start_ms": 16055,
+          "end_ms": 16235,
+          "confidence": 0.99
+        },
+        {
+          "text": "study,",
+          "start_ms": 16305,
+          "end_ms": 16635,
+          "confidence": 0.99
+        },
+        {
+          "text": "students",
+          "start_ms": 16705,
+          "end_ms": 17145,
+          "confidence": 0.99
+        },
+        {
+          "text": "wore",
+          "start_ms": 17215,
+          "end_ms": 17435,
+          "confidence": 0.99
+        },
+        {
+          "text": "an",
+          "start_ms": 17505,
+          "end_ms": 17685,
+          "confidence": 0.99
+        },
+        {
+          "text": "embarrassing",
+          "start_ms": 17755,
+          "end_ms": 18415,
+          "confidence": 0.99
+        },
+        {
+          "text": "shirt",
+          "start_ms": 18485,
+          "end_ms": 18760,
+          "confidence": 0.99
+        },
+        {
+          "text": "and",
+          "start_ms": 18830,
+          "end_ms": 19010,
+          "confidence": 0.99
+        },
+        {
+          "text": "guessed",
+          "start_ms": 19080,
+          "end_ms": 19465,
+          "confidence": 0.99
+        },
+        {
+          "text": "that",
+          "start_ms": 19535,
+          "end_ms": 19755,
+          "confidence": 0.99
+        },
+        {
+          "text": "nearly",
+          "start_ms": 19825,
+          "end_ms": 20155,
+          "confidence": 0.99
+        },
+        {
+          "text": "half",
+          "start_ms": 20225,
+          "end_ms": 20445,
+          "confidence": 0.99
+        },
+        {
+          "text": "the",
+          "start_ms": 20515,
+          "end_ms": 20695,
+          "confidence": 0.99
+        },
+        {
+          "text": "room",
+          "start_ms": 20765,
+          "end_ms": 20985,
+          "confidence": 0.99
+        },
+        {
+          "text": "would",
+          "start_ms": 21055,
+          "end_ms": 21330,
+          "confidence": 0.99
+        },
+        {
+          "text": "notice.",
+          "start_ms": 21400,
+          "end_ms": 21785,
+          "confidence": 0.99
+        },
+        {
+          "text": "The",
+          "start_ms": 21855,
+          "end_ms": 22035,
+          "confidence": 0.99
+        },
+        {
+          "text": "real",
+          "start_ms": 22105,
+          "end_ms": 22325,
+          "confidence": 0.99
+        },
+        {
+          "text": "number",
+          "start_ms": 22395,
+          "end_ms": 22725,
+          "confidence": 0.99
+        },
+        {
+          "text": "was",
+          "start_ms": 22795,
+          "end_ms": 22975,
+          "confidence": 0.99
+        },
+        {
+          "text": "closer",
+          "start_ms": 23045,
+          "end_ms": 23375,
+          "confidence": 0.99
+        },
+        {
+          "text": "to",
+          "start_ms": 23445,
+          "end_ms": 23625,
+          "confidence": 0.99
+        },
+        {
+          "text": "a",
+          "start_ms": 23695,
+          "end_ms": 23875,
+          "confidence": 0.99
+        },
+        {
+          "text": "fifth.",
+          "start_ms": 23945,
+          "end_ms": 24275,
+          "confidence": 0.99
+        }
+      ],
+      "narrative_function": "turn",
+      "visual_template": "symbolic_metaphor",
+      "visual_description": "symbolic_metaphor — turn",
+      "image_prompt": "symbolic_metaphor scene, psychology style | palette #070B1E / #0E1430 / #38E5FF / #7B81FF, consistent 3px stickman line | depicts: In one study, students wore an embarrassing shirt and guessed that nearly half the room wo… | avoid: watermark, extra limbs, unreadable text, brand logos, distorted faces",
+      "video_prompt": null,
+      "reference_asset_ids": [],
+      "motion": "slow_push_in",
+      "camera": "medium_wide",
+      "on_screen_text": null,
+      "sfx": [],
+      "music_state": "tension_high",
+      "transition_out": "cut",
+      "source_claim_ids": [
+        "C1"
+      ],
+      "asset_id": null,
+      "status": "planned"
+    },
+    {
+      "scene_id": "S005",
+      "start_ms": 24535,
+      "end_ms": 30050,
+      "duration_ms": 5515,
+      "vo_segment_ids": [
+        "VO005"
+      ],
+      "vo_text": "The mind places you at the center of a stage that, for everyone else, does not exist.",
+      "words": [
+        {
+          "text": "The",
+          "start_ms": 24535,
+          "end_ms": 24715,
+          "confidence": 0.99
+        },
+        {
+          "text": "mind",
+          "start_ms": 24785,
+          "end_ms": 25005,
+          "confidence": 0.99
+        },
+        {
+          "text": "places",
+          "start_ms": 25075,
+          "end_ms": 25405,
+          "confidence": 0.99
+        },
+        {
+          "text": "you",
+          "start_ms": 25475,
+          "end_ms": 25655,
+          "confidence": 0.99
+        },
+        {
+          "text": "at",
+          "start_ms": 25725,
+          "end_ms": 25905,
+          "confidence": 0.99
+        },
+        {
+          "text": "the",
+          "start_ms": 25975,
+          "end_ms": 26155,
+          "confidence": 0.99
+        },
+        {
+          "text": "center",
+          "start_ms": 26225,
+          "end_ms": 26555,
+          "confidence": 0.99
+        },
+        {
+          "text": "of",
+          "start_ms": 26625,
+          "end_ms": 26805,
+          "confidence": 0.99
+        },
+        {
+          "text": "a",
+          "start_ms": 26875,
+          "end_ms": 27055,
+          "confidence": 0.99
+        },
+        {
+          "text": "stage",
+          "start_ms": 27125,
+          "end_ms": 27400,
+          "confidence": 0.99
+        },
+        {
+          "text": "that,",
+          "start_ms": 27470,
+          "end_ms": 27745,
+          "confidence": 0.99
+        },
+        {
+          "text": "for",
+          "start_ms": 27815,
+          "end_ms": 27995,
+          "confidence": 0.99
+        },
+        {
+          "text": "everyone",
+          "start_ms": 28065,
+          "end_ms": 28505,
+          "confidence": 0.99
+        },
+        {
+          "text": "else,",
+          "start_ms": 28575,
+          "end_ms": 28850,
+          "confidence": 0.99
+        },
+        {
+          "text": "does",
+          "start_ms": 28920,
+          "end_ms": 29140,
+          "confidence": 0.99
+        },
+        {
+          "text": "not",
+          "start_ms": 29210,
+          "end_ms": 29390,
+          "confidence": 0.99
+        },
+        {
+          "text": "exist.",
+          "start_ms": 29460,
+          "end_ms": 29790,
+          "confidence": 0.99
+        }
+      ],
+      "narrative_function": "payoff",
+      "visual_template": "stickman_character",
+      "visual_description": "stickman_character — payoff",
+      "image_prompt": "stickman_character scene, psychology style | palette #070B1E / #0E1430 / #38E5FF / #7B81FF, consistent 3px stickman line | depicts: The mind places you at the center of a stage that, for everyone else, does not exist. | avoid: watermark, extra limbs, unreadable text, brand logos, distorted faces",
+      "video_prompt": null,
+      "reference_asset_ids": [],
+      "motion": "slow_push_in",
+      "camera": "medium_wide",
+      "on_screen_text": null,
+      "sfx": [],
+      "music_state": "resolve",
+      "transition_out": "cut",
+      "source_claim_ids": [],
+      "asset_id": null,
+      "status": "planned"
+    },
+    {
+      "scene_id": "S006",
+      "start_ms": 30050,
+      "end_ms": 35470,
+      "duration_ms": 5420,
+      "vo_segment_ids": [
+        "VO006"
+      ],
+      "vo_text": "Each person is the star of their own spotlight, far too busy in it to study yours.",
+      "words": [
+        {
+          "text": "Each",
+          "start_ms": 30050,
+          "end_ms": 30270,
+          "confidence": 0.99
+        },
+        {
+          "text": "person",
+          "start_ms": 30340,
+          "end_ms": 30670,
+          "confidence": 0.99
+        },
+        {
+          "text": "is",
+          "start_ms": 30740,
+          "end_ms": 30920,
+          "confidence": 0.99
+        },
+        {
+          "text": "the",
+          "start_ms": 30990,
+          "end_ms": 31170,
+          "confidence": 0.99
+        },
+        {
+          "text": "star",
+          "start_ms": 31240,
+          "end_ms": 31460,
+          "confidence": 0.99
+        },
+        {
+          "text": "of",
+          "start_ms": 31530,
+          "end_ms": 31710,
+          "confidence": 0.99
+        },
+        {
+          "text": "their",
+          "start_ms": 31780,
+          "end_ms": 32055,
+          "confidence": 0.99
+        },
+        {
+          "text": "own",
+          "start_ms": 32125,
+          "end_ms": 32305,
+          "confidence": 0.99
+        },
+        {
+          "text": "spotlight,",
+          "start_ms": 32375,
+          "end_ms": 32925,
+          "confidence": 0.99
+        },
+        {
+          "text": "far",
+          "start_ms": 32995,
+          "end_ms": 33175,
+          "confidence": 0.99
+        },
+        {
+          "text": "too",
+          "start_ms": 33245,
+          "end_ms": 33425,
+          "confidence": 0.99
+        },
+        {
+          "text": "busy",
+          "start_ms": 33495,
+          "end_ms": 33715,
+          "confidence": 0.99
+        },
+        {
+          "text": "in",
+          "start_ms": 33785,
+          "end_ms": 33965,
+          "confidence": 0.99
+        },
+        {
+          "text": "it",
+          "start_ms": 34035,
+          "end_ms": 34215,
+          "confidence": 0.99
+        },
+        {
+          "text": "to",
+          "start_ms": 34285,
+          "end_ms": 34465,
+          "confidence": 0.99
+        },
+        {
+          "text": "study",
+          "start_ms": 34535,
+          "end_ms": 34810,
+          "confidence": 0.99
+        },
+        {
+          "text": "yours.",
+          "start_ms": 34880,
+          "end_ms": 35210,
+          "confidence": 0.99
+        }
+      ],
+      "narrative_function": "setup",
+      "visual_template": "stickman_character",
+      "visual_description": "stickman_character — setup",
+      "image_prompt": "stickman_character scene, psychology style | palette #070B1E / #0E1430 / #38E5FF / #7B81FF, consistent 3px stickman line | depicts: Each person is the star of their own spotlight, far too busy in it to study yours. | avoid: watermark, extra limbs, unreadable text, brand logos, distorted faces",
+      "video_prompt": null,
+      "reference_asset_ids": [],
+      "motion": "slow_push_in",
+      "camera": "medium_wide",
+      "on_screen_text": null,
+      "sfx": [],
+      "music_state": "bed_low",
+      "transition_out": "cut",
+      "source_claim_ids": [],
+      "asset_id": null,
+      "status": "planned"
+    },
+    {
+      "scene_id": "S007",
+      "start_ms": 35470,
+      "end_ms": 40790,
+      "duration_ms": 5320,
+      "vo_segment_ids": [
+        "VO007"
+      ],
+      "vo_text": "Which means the fear that freezes you is built on an audience that is not looking.",
+      "words": [
+        {
+          "text": "Which",
+          "start_ms": 35470,
+          "end_ms": 35745,
+          "confidence": 0.99
+        },
+        {
+          "text": "means",
+          "start_ms": 35815,
+          "end_ms": 36090,
+          "confidence": 0.99
+        },
+        {
+          "text": "the",
+          "start_ms": 36160,
+          "end_ms": 36340,
+          "confidence": 0.99
+        },
+        {
+          "text": "fear",
+          "start_ms": 36410,
+          "end_ms": 36630,
+          "confidence": 0.99
+        },
+        {
+          "text": "that",
+          "start_ms": 36700,
+          "end_ms": 36920,
+          "confidence": 0.99
+        },
+        {
+          "text": "freezes",
+          "start_ms": 36990,
+          "end_ms": 37375,
+          "confidence": 0.99
+        },
+        {
+          "text": "you",
+          "start_ms": 37445,
+          "end_ms": 37625,
+          "confidence": 0.99
+        },
+        {
+          "text": "is",
+          "start_ms": 37695,
+          "end_ms": 37875,
+          "confidence": 0.99
+        },
+        {
+          "text": "built",
+          "start_ms": 37945,
+          "end_ms": 38220,
+          "confidence": 0.99
+        },
+        {
+          "text": "on",
+          "start_ms": 38290,
+          "end_ms": 38470,
+          "confidence": 0.99
+        },
+        {
+          "text": "an",
+          "start_ms": 38540,
+          "end_ms": 38720,
+          "confidence": 0.99
+        },
+        {
+          "text": "audience",
+          "start_ms": 38790,
+          "end_ms": 39230,
+          "confidence": 0.99
+        },
+        {
+          "text": "that",
+          "start_ms": 39300,
+          "end_ms": 39520,
+          "confidence": 0.99
+        },
+        {
+          "text": "is",
+          "start_ms": 39590,
+          "end_ms": 39770,
+          "confidence": 0.99
+        },
+        {
+          "text": "not",
+          "start_ms": 39840,
+          "end_ms": 40020,
+          "confidence": 0.99
+        },
+        {
+          "text": "looking.",
+          "start_ms": 40090,
+          "end_ms": 40530,
+          "confidence": 0.99
+        }
+      ],
+      "narrative_function": "payoff",
+      "visual_template": "stickman_character",
+      "visual_description": "stickman_character — payoff",
+      "image_prompt": "stickman_character scene, psychology style | palette #070B1E / #0E1430 / #38E5FF / #7B81FF, consistent 3px stickman line | depicts: Which means the fear that freezes you is built on an audience that is not looking. | avoid: watermark, extra limbs, unreadable text, brand logos, distorted faces",
+      "video_prompt": null,
+      "reference_asset_ids": [],
+      "motion": "slow_push_in",
+      "camera": "medium_wide",
+      "on_screen_text": null,
+      "sfx": [],
+      "music_state": "resolve",
+      "transition_out": "cut",
+      "source_claim_ids": [],
+      "asset_id": null,
+      "status": "planned"
+    },
+    {
+      "scene_id": "S008",
+      "start_ms": 40790,
+      "end_ms": 45355,
+      "duration_ms": 4565,
+      "vo_segment_ids": [
+        "VO008"
+      ],
+      "vo_text": "Notice the spotlight the next time it falls. Then step through it anyway.",
+      "words": [
+        {
+          "text": "Notice",
+          "start_ms": 40790,
+          "end_ms": 41120,
+          "confidence": 0.99
+        },
+        {
+          "text": "the",
+          "start_ms": 41190,
+          "end_ms": 41370,
+          "confidence": 0.99
+        },
+        {
+          "text": "spotlight",
+          "start_ms": 41440,
+          "end_ms": 41935,
+          "confidence": 0.99
+        },
+        {
+          "text": "the",
+          "start_ms": 42005,
+          "end_ms": 42185,
+          "confidence": 0.99
+        },
+        {
+          "text": "next",
+          "start_ms": 42255,
+          "end_ms": 42475,
+          "confidence": 0.99
+        },
+        {
+          "text": "time",
+          "start_ms": 42545,
+          "end_ms": 42765,
+          "confidence": 0.99
+        },
+        {
+          "text": "it",
+          "start_ms": 42835,
+          "end_ms": 43015,
+          "confidence": 0.99
+        },
+        {
+          "text": "falls.",
+          "start_ms": 43085,
+          "end_ms": 43415,
+          "confidence": 0.99
+        },
+        {
+          "text": "Then",
+          "start_ms": 43485,
+          "end_ms": 43705,
+          "confidence": 0.99
+        },
+        {
+          "text": "step",
+          "start_ms": 43775,
+          "end_ms": 43995,
+          "confidence": 0.99
+        },
+        {
+          "text": "through",
+          "start_ms": 44065,
+          "end_ms": 44450,
+          "confidence": 0.99
+        },
+        {
+          "text": "it",
+          "start_ms": 44520,
+          "end_ms": 44700,
+          "confidence": 0.99
+        },
+        {
+          "text": "anyway.",
+          "start_ms": 44770,
+          "end_ms": 45155,
+          "confidence": 0.99
+        }
+      ],
+      "narrative_function": "cta",
+      "visual_template": "editor_typography",
+      "visual_description": "editor_typography — cta",
+      "image_prompt": "editor_typography scene, psychology style | palette #070B1E / #0E1430 / #38E5FF / #7B81FF, consistent 3px stickman line | depicts: Notice the spotlight the next time it falls. Then step through it anyway. | avoid: watermark, extra limbs, unreadable text, brand logos, distorted faces",
+      "video_prompt": null,
+      "reference_asset_ids": [],
+      "motion": "slow_push_in",
+      "camera": "medium_wide",
+      "on_screen_text": null,
+      "sfx": [],
+      "music_state": "bed_low",
+      "transition_out": "cut",
+      "source_claim_ids": [],
+      "asset_id": null,
+      "status": "planned"
+    }
+  ]
+}

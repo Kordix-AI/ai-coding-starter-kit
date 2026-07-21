@@ -1,0 +1,19 @@
+{
+  "video_id": "hr-demo-spotlight",
+  "channel_id": "hidden-rush",
+  "title_working": "The Audience That Isn’t Watching",
+  "viewer_promise": "Understand why you feel watched — and why you mostly aren’t.",
+  "dominant_question": "Why do we overestimate how much others notice us?",
+  "target_duration_sec": 75,
+  "retention_beats": [
+    "unsettling cold open",
+    "name the effect",
+    "the shirt study",
+    "applied release"
+  ],
+  "open_loops": [
+    "who is actually watching you?"
+  ],
+  "angle": "the spotlight effect as quiet relief, not self-help hype",
+  "brief_version": "1.0.0"
+}

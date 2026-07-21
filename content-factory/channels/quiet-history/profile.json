@@ -1,0 +1,76 @@
+{
+  "channel_id": "quiet-history",
+  "name": "Quiet History",
+  "niche": "history",
+  "sub_niches": ["forgotten events", "everyday life in the past"],
+
+  "target_audience": "English-speaking history-curious adults who like calm, well-sourced storytelling",
+  "audience_problems": ["overwhelmed by sensationalized history content"],
+  "audience_desires": ["accurate, atmospheric micro-histories"],
+
+  "output_language": "en",
+  "ui_language": "de",
+
+  "value_proposition": "Small, true stories from history, told quietly and accurately.",
+  "positioning": "Understated, archival, trustworthy.",
+
+  "tone": "warm, measured, documentary",
+  "pacing": "slow",
+  "humor_level": "low",
+  "emotional_intensity": "low",
+
+  "allowed_topics": ["social history", "microhistory"],
+  "excluded_topics": ["contested modern politics"],
+
+  "content_risk_class": "low",
+  "required_source_types": ["primary historical sources", "academic history"],
+  "fact_check_rules": ["date every claim", "no invented quotes"],
+
+  "formats": { "long_form": true, "short": false, "compilation": false },
+
+  "target_duration_sec": 480,
+  "target_wpm": 130,
+  "aspect_ratio": "16:9",
+  "fps": 30,
+
+  "hook_style": "start in the middle of a scene",
+  "narrative_framework": "scene → context → consequence",
+  "cta_rules": ["end CTA only"],
+
+  "visual_style_bible": {
+    "palette": ["#1A140E", "#2B2118", "#C9A227", "#E8D8B0"],
+    "line_width": "consistent 3px ink line",
+    "backgrounds": "aged paper texture, sepia",
+    "typography": "serif captions, sparse",
+    "safe_areas": "16:9 title-safe 90%",
+    "negative_prompts": ["watermark", "modern objects", "unreadable text"],
+    "characters": [
+      {
+        "character_id": "QH-NARRATOR-FIGURE",
+        "name": "Ink Figure",
+        "proportions": "simple ink stickman",
+        "clothing": "period-neutral line silhouette",
+        "face_details": "minimal",
+        "reference_asset_ids": [],
+        "seed": 171717
+      }
+    ]
+  },
+
+  "tts": {
+    "voice_id": "quiet-history-vo",
+    "voice_instructions": "warm measured narration, ~130 wpm",
+    "pronunciation_lexicon": {}
+  },
+
+  "music_sfx_rules": ["soft piano bed only"],
+  "thumbnail_system": "single sepia object, <=3 words",
+  "publishing_rules": ["publish only after G7 approval"],
+  "analytics_goals": ["avg view duration > 40%"],
+  "experiment_rules": ["one variable per test"],
+
+  "budget_usd_per_video": 6,
+  "budget_minutes_per_video": 40,
+
+  "profile_version": "1.0.0"
+}

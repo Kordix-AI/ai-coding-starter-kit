@@ -1,0 +1,39 @@
+{
+  "video_id": "hr-demo-spotlight",
+  "channel_id": "hidden-rush",
+  "slug": "hr-demo-spotlight",
+  "created_at": "2026-07-21T21:09:52.677Z",
+  "current_stage": "qc_passed",
+  "artifacts": {
+    "brief": {
+      "path": "brief.json",
+      "version": "1.0.0",
+      "status": "ready"
+    },
+    "script": {
+      "path": "script/voiceover.segments.json",
+      "version": "1.0.0",
+      "status": "ready"
+    },
+    "audio": {
+      "path": "audio/voiceover.wav",
+      "version": "1",
+      "status": "ready"
+    },
+    "timeline": {
+      "path": "storyboard/timeline.json",
+      "version": "1",
+      "status": "ready"
+    },
+    "subtitles_srt": {
+      "path": "captions/subtitles.srt",
+      "version": "1",
+      "status": "ready"
+    },
+    "qc": {
+      "path": "qc/media-qc.json",
+      "version": "1",
+      "status": "ready"
+    }
+  }
+}

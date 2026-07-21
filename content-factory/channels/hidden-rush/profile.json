@@ -1,0 +1,125 @@
+{
+  "channel_id": "hidden-rush",
+  "name": "Hidden Rush",
+  "niche": "psychology",
+  "sub_niches": ["human behavior", "decision-making", "hidden motivations"],
+
+  "target_audience": "English-speaking curious adults 18–34 fascinated by the mind and why people do what they do",
+  "audience_problems": [
+    "feel they don't understand their own impulses",
+    "distrust simplistic self-help",
+    "short attention, crave depth without fluff"
+  ],
+  "audience_desires": [
+    "quiet, intelligent explanations",
+    "a sense of uncovering something hidden",
+    "insight they can apply to themselves"
+  ],
+
+  "output_language": "en",
+  "ui_language": "de",
+
+  "value_proposition": "Faceless, documentary-grade psychology that reveals the hidden machinery behind everyday behavior.",
+  "positioning": "Calm, mysterious, intellectually honest — the opposite of loud hustle content.",
+
+  "tone": "intelligent, mysterious, emotionally controlled, documentary",
+  "pacing": "calm and deliberate",
+  "humor_level": "none",
+  "emotional_intensity": "medium",
+
+  "allowed_topics": [
+    "cognitive biases",
+    "motivation and habit",
+    "social psychology",
+    "perception and memory"
+  ],
+  "excluded_topics": [
+    "clinical diagnosis of individuals",
+    "medical treatment advice",
+    "political persuasion"
+  ],
+
+  "content_risk_class": "medium",
+  "required_source_types": [
+    "peer-reviewed psychology studies",
+    "reputable primary sources"
+  ],
+  "fact_check_rules": [
+    "every empirical claim carries a claim_id linked to a source",
+    "no invented studies, numbers or quotes",
+    "avoid over-generalizing single studies"
+  ],
+
+  "formats": { "long_form": true, "short": true, "compilation": false },
+
+  "target_duration_sec": 600,
+  "target_wpm": 138,
+  "aspect_ratio": "16:9",
+  "fps": 30,
+
+  "hook_style": "cold open with an unsettling question, no greeting",
+  "narrative_framework": "open loop → tension → reveal → applied payoff",
+  "cta_rules": [
+    "soft CTA only at the end",
+    "no mid-video subscribe begging"
+  ],
+
+  "visual_style_bible": {
+    "palette": ["#070B1E", "#0E1430", "#38E5FF", "#7B81FF"],
+    "line_width": "consistent 3px stickman line",
+    "backgrounds": "deep navy with subtle grain, minimal negative space",
+    "typography": "clean geometric sans, sparse on-screen text",
+    "safe_areas": "16:9 title-safe 90%, action-safe 93%",
+    "negative_prompts": [
+      "watermark",
+      "extra limbs",
+      "unreadable text",
+      "brand logos",
+      "distorted faces"
+    ],
+    "characters": [
+      {
+        "character_id": "HR-EVERYMAN",
+        "name": "The Everyman",
+        "proportions": "simple stickman, round head, 5-head body ratio",
+        "clothing": "no clothing detail, pure line figure",
+        "face_details": "two dot eyes, no mouth unless needed",
+        "reference_asset_ids": [],
+        "seed": 424242
+      }
+    ]
+  },
+
+  "tts": {
+    "voice_id": "hidden-rush-vo",
+    "voice_instructions": "calm male-neutral narration, ~138 wpm, controlled, documentary; pauses at semantic breaks",
+    "pronunciation_lexicon": {
+      "dopamine": "DOH-pa-meen",
+      "amygdala": "uh-MIG-duh-luh"
+    }
+  },
+
+  "music_sfx_rules": [
+    "ambient tension bed under -22 LUFS",
+    "no stock whooshes; subtle risers only at turns"
+  ],
+  "thumbnail_system": "single dominant stickman + one glowing focal object, <=3 words, high contrast on navy",
+  "publishing_rules": [
+    "publish only after G7 approval",
+    "no auto-publish (channel-level flag off)"
+  ],
+  "analytics_goals": [
+    "avg view duration > 45%",
+    "first-30s retention > 70%",
+    "CTR > 5%"
+  ],
+  "experiment_rules": [
+    "one variable per test",
+    "no global rule from a single video"
+  ],
+
+  "budget_usd_per_video": 8,
+  "budget_minutes_per_video": 45,
+
+  "profile_version": "1.0.0"
+}
