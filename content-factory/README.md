@@ -12,10 +12,17 @@ im OS-Repo und wird später per `git subtree split` in ein eigenes Repo
 (`kordix-content-factory`) ausgelagert, das sich als Marketing-/Content-Datenquelle ans
 Kordix Company OS andockt.
 
+## Zwei Ebenen
+
+- **Ebene 1 — Build (diese Codebasis):** die Produktions-Software.
+- **Ebene 2 — Produktion (`WORKSTREAM.md`):** Nischenwahl → Scoring/Verdict → ein Production
+  Package pro Video. CLI: `npm run decide`.
+
 ## Status (MVP-Slice)
 
 ✅ Vertikaler Slice lauffähig & getestet: **Profile → Brief → Skript → (Mock-)TTS →
 echtes Alignment → Timeline → Untertitel → QC → Production Package.**
+✅ Ebene 2: Nischen-Scoring (13 Dimensionen, Kill/Pivot/Scale) + `runProduction()` je Video.
 Kein bezahltes Generieren, kein Netzwerk, deterministisch.
 
 ## Quickstart

@@ -9,12 +9,12 @@ import { readWavDurationMs } from '../audio/wav.js'
 import { buildTimeline } from '../timeline/build-timeline.js'
 import { qcTimeline, type QcReport } from '../timeline/qc.js'
 import { buildCues, toSrt, toVtt } from '../subtitles/index.js'
-import { JobStateMachine } from '../state/machine.js'
+import { JobStateMachine, stableHash } from '../state/machine.js'
 import { estimateVideoCost, type CostEstimate } from '../cost/estimate.js'
 import { renderCapabilityMatrix } from '../providers/registry.js'
-import { demoBrief, demoScript, DEMO_VIDEO_ID } from './demo.js'
-import { stableHash } from '../state/machine.js'
-import type { Alignment, Timeline } from '../schemas/index.js'
+import { demoBrief, demoScript } from './demo.js'
+import type { Alignment, Timeline, ChannelProfile, VideoBrief, VoiceoverScript } from '../schemas/index.js'
+import type { TTSProvider, AlignmentProvider } from '../providers/interfaces.js'
 
 const VIDEOS_DIR = fileURLToPath(new URL('../../videos/', import.meta.url))
 
@@ -31,11 +31,16 @@ export interface SliceResult {
   files: string[]
 }
 
-export interface SliceOptions {
+export interface ProductionInput {
+  channel: ChannelProfile
+  brief: VideoBrief
+  script: VoiceoverScript
   outRoot?: string
-  channelSlug?: string
   now?: () => string
   mockCost?: boolean
+  /** Provider-Injektion (Default: sichere Mocks). Echt: Higgsfield + Worker-Alignment. */
+  tts?: TTSProvider
+  aligner?: AlignmentProvider
 }
 
 function writeJson(path: string, obj: unknown, files: string[]): void {
@@ -48,20 +53,18 @@ function writeText(path: string, text: string, files: string[]): void {
 }
 
 /**
- * MVP vertikaler Slice: Profile → Brief → Skript → (Mock-)TTS → echtes Alignment
- * → Timeline → Untertitel → QC → Production Package. Kein bezahltes Generieren,
- * kein Render (ffmpeg-Worker separat). Deterministisch & wiederholbar.
+ * Ebene 2 — EIN kontrolliertes Production Package pro Video.
+ * Profile → Brief → Skript → TTS → echtes Alignment → Timeline → Untertitel → QC.
+ * Provider sind injizierbar; Default = sichere Mocks (kein bezahltes Generieren, kein Render).
  */
-export async function runSlice(opts: SliceOptions = {}): Promise<SliceResult> {
-  const outRoot = opts.outRoot ?? VIDEOS_DIR
-  const slug = opts.channelSlug ?? 'hidden-rush'
-  const now = opts.now ?? (() => new Date().toISOString())
+export async function runProduction(input: ProductionInput): Promise<SliceResult> {
+  const { channel, brief, script } = input
+  const outRoot = input.outRoot ?? VIDEOS_DIR
+  const now = input.now ?? (() => new Date().toISOString())
+  const tts = input.tts ?? new MockTTSProvider()
+  const aligner = input.aligner ?? new ProviderMarksAlignmentProvider()
+  const videoId = brief.video_id
   const files: string[] = []
-
-  const channel = loadChannelProfile(slug)
-  const script = demoScript
-  const brief = demoBrief
-  const videoId = DEMO_VIDEO_ID
   const jobs = new JobStateMachine(videoId)
 
   const dir = (sub: string) => join(outRoot, videoId, sub)
@@ -69,61 +72,38 @@ export async function runSlice(opts: SliceOptions = {}): Promise<SliceResult> {
     mkdirSync(dir(sub), { recursive: true })
   }
 
-  // Brief + Skript
   writeJson(join(dir(''), 'brief.json'), brief, files)
   writeJson(join(dir('script'), 'voiceover.segments.json'), script, files)
 
-  // Quellen/Claims (keine erfundenen Quellen — reale, bekannte Studie)
+  // Claims/Quellen (keine erfundenen Quellen)
+  const claimIds = [...new Set(script.segments.flatMap((s) => s.claim_ids))]
   writeJson(
     join(dir('research'), 'claims.json'),
-    [
-      {
-        claim_id: 'C1',
-        text: 'People overestimate how much others notice them (spotlight effect).',
-        source_id: 'S1',
-      },
-    ],
-    files,
-  )
-  writeJson(
-    join(dir('research'), 'sources.json'),
-    [
-      {
-        source_id: 'S1',
-        title:
-          'Gilovich, Medvec & Savitsky (2000): The spotlight effect in social judgment',
-        type: 'peer-reviewed psychology study',
-        note: 'Referenz für C1; vor Produktion gegen Primärquelle verifizieren.',
-      },
-    ],
+    claimIds.map((id) => ({ claim_id: id, status: 'needs_source', trust_level: 'unverified' })),
     files,
   )
 
-  // Kosten-Gate (Mock → 0)
+  // Kosten-Gate
   const cost = estimateVideoCost({
     script,
     sceneCount: script.segments.length,
     i2vClips: 0,
     durationMs: brief.target_duration_sec * 1000,
     budgetUsd: channel.budget_usd_per_video,
-    mock: opts.mockCost ?? true,
+    mock: input.mockCost ?? true,
   })
 
-  // Audio (Mock-TTS) — reales WAV
-  const audioInHash = stableHash({ script, voice: channel.tts.voice_id })
-  jobs.start('audio', audioInHash)
-  const tts = new MockTTSProvider()
+  // Audio
+  jobs.start('audio', stableHash({ script, voice: channel.tts.voice_id }))
   const wavPath = join(dir('audio'), 'voiceover.wav')
   const ttsResult = await tts.synthesize(script, wavPath)
   files.push(wavPath)
   jobs.succeed('audio', stableHash({ dur: ttsResult.audio_duration_ms }))
 
-  // reale Dauer AUS dem Audio bestimmen (ffprobe-äquivalent)
   const audioDurationMs = readWavDurationMs(wavPath)
 
   // Alignment
   jobs.start('alignment', stableHash({ audioDurationMs }))
-  const aligner = new ProviderMarksAlignmentProvider()
   const alignment = await aligner.align({
     script,
     audioPath: wavPath,
@@ -135,33 +115,31 @@ export async function runSlice(opts: SliceOptions = {}): Promise<SliceResult> {
   jobs.succeed('alignment', stableHash({ w: alignment.words.length }))
 
   // Timeline
-  jobs.start('timeline', stableHash({ align: alignment.min_confidence, n: alignment.segments.length }))
+  jobs.start('timeline', stableHash({ conf: alignment.min_confidence, n: alignment.segments.length }))
   const timeline = buildTimeline({ script, alignment, channel })
   writeJson(join(dir('storyboard'), 'timeline.json'), timeline, files)
   jobs.succeed('timeline', stableHash({ scenes: timeline.scenes.length }))
 
-  // Untertitel (aus demselben Alignment)
+  // Untertitel
   jobs.start('subtitles')
   const cues = buildCues(alignment)
   writeText(join(dir('captions'), 'subtitles.srt'), toSrt(cues), files)
   writeText(join(dir('captions'), 'subtitles.vtt'), toVtt(cues), files)
   jobs.succeed('subtitles')
 
-  // QC (Timing + Konfidenz)
+  // QC
   jobs.start('qc')
   const qc = qcTimeline(timeline, { alignmentMinConfidence: alignment.min_confidence })
   writeJson(join(dir('qc'), 'media-qc.json'), qc, files)
   if (qc.ok) jobs.succeed('qc')
   else jobs.fail('qc', qc.issues.filter((i) => i.level === 'error').map((i) => i.code).join(','))
 
-  // Render: bewusst nicht ausgeführt (ffmpeg/Remotion-Worker separat) — ehrlich markiert
   writeText(
     join(dir('renders'), 'RENDER_PLAN.md'),
     `# Render Plan (nicht ausgeführt)\n\nRenderProvider 'remotion-ffmpeg' ist 'configurable': ffmpeg/ffprobe + Worker nötig.\nEingabe steht bereit: storyboard/timeline.json + audio/voiceover.wav + captions/subtitles.srt.\n`,
     files,
   )
 
-  // Manifest
   writeJson(
     join(dir(''), 'manifest.json'),
     {
@@ -194,6 +172,26 @@ export async function runSlice(opts: SliceOptions = {}): Promise<SliceResult> {
     jobs: jobs.snapshot(),
     files,
   }
+}
+
+export interface SliceOptions {
+  outRoot?: string
+  channelSlug?: string
+  now?: () => string
+  mockCost?: boolean
+}
+
+/** Demo-Wrapper: Hidden-Rush-Spotlight-Slice über runProduction. */
+export async function runSlice(opts: SliceOptions = {}): Promise<SliceResult> {
+  const channel = loadChannelProfile(opts.channelSlug ?? 'hidden-rush')
+  return runProduction({
+    channel,
+    brief: demoBrief,
+    script: demoScript,
+    outRoot: opts.outRoot,
+    now: opts.now,
+    mockCost: opts.mockCost,
+  })
 }
 
 // CLI-Entry

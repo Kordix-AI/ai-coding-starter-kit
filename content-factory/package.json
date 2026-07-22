@@ -8,7 +8,8 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "slice": "tsx src/pipeline/run-slice.ts"
+    "slice": "tsx src/pipeline/run-slice.ts",
+    "decide": "tsx src/niche/run-decision.ts"
   },
   "dependencies": {
     "zod": "^4.3.5"

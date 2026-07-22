@@ -33,5 +33,19 @@ export {
   type ClaimTrustLevel,
 } from './policy.js'
 export { loadChannelProfile, CHANNELS_DIR } from './channels/load.js'
-export { runSlice, type SliceResult } from './pipeline/run-slice.js'
+export { runSlice, runProduction, type SliceResult, type ProductionInput } from './pipeline/run-slice.js'
 export { demoBrief, demoScript, DEMO_VIDEO_ID } from './pipeline/demo.js'
+
+// Ebene 2 — Video Production Workstream (Nischenwahl → Entscheidung)
+export * from './schemas/niche.js'
+export {
+  DIMENSION_WEIGHTS,
+  DEFAULT_DECISION_CRITERIA,
+  scoreNiche,
+  verdictFor,
+  rankNiches,
+  type RankedNiche,
+} from './niche/scoring.js'
+export { decideChannel, buildFirst10Plan, type ProfileHint } from './niche/decide.js'
+export { NICHE_INTERVIEW, SCORING_PROMPTS } from './niche/interview.js'
+export { demoFounder, demoScorecards, demoProfileHints } from './niche/demo.js'
