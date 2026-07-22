@@ -18,9 +18,20 @@ export {
   STAGES,
   GATES,
   STAGE_REQUIRES_GATE,
+  INVALIDATION_MATRIX,
+  stagesToInvalidate,
   stableHash,
+  type ChangeKind,
 } from './state/machine.js'
 export { estimateVideoCost, DEFAULT_RATES } from './cost/estimate.js'
+export {
+  DEFAULT_QC_POLICY,
+  DEFAULT_BUDGET_POLICY,
+  CLAIM_TRUST_LEVELS,
+  type QcPolicy,
+  type BudgetPolicy,
+  type ClaimTrustLevel,
+} from './policy.js'
 export { loadChannelProfile, CHANNELS_DIR } from './channels/load.js'
 export { runSlice, type SliceResult } from './pipeline/run-slice.js'
 export { demoBrief, demoScript, DEMO_VIDEO_ID } from './pipeline/demo.js'

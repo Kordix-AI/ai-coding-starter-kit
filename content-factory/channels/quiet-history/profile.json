@@ -37,6 +37,8 @@
   "narrative_framework": "scene → context → consequence",
   "cta_rules": ["end CTA only"],
 
+  "visual_preset": "stickman_minimal",
+
   "visual_style_bible": {
     "palette": ["#1A140E", "#2B2118", "#C9A227", "#E8D8B0"],
     "line_width": "consistent 3px ink line",

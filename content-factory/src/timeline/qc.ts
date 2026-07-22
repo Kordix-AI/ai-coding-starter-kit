@@ -1,4 +1,5 @@
 import type { Timeline } from '../schemas/index.js'
+import { DEFAULT_QC_POLICY, type QcPolicy } from '../policy.js'
 
 export interface QcIssue {
   level: 'error' | 'warning'
@@ -13,7 +14,8 @@ export interface QcReport {
 export interface QcOptions {
   /** Alignment-Konfidenz; unter der Schwelle → sichtbarer QC-Fehler (keine stille Freigabe). */
   alignmentMinConfidence?: number
-  minConfidenceThreshold?: number
+  /** überschreibt einzelne Default-Schwellen (policy.ts). */
+  policy?: Partial<QcPolicy>
 }
 
 export function frameMs(fps: number): number {
@@ -27,8 +29,10 @@ export function frameMs(fps: number): number {
 export function qcTimeline(timeline: Timeline, opts: QcOptions = {}): QcReport {
   const issues: QcIssue[] = []
   const { scenes, audio_duration_ms, fps } = timeline
+  const policy: QcPolicy = { ...DEFAULT_QC_POLICY, ...opts.policy }
   const f = frameMs(fps)
-  const threshold = opts.minConfidenceThreshold ?? 0.6
+  const driftTolerance = f * policy.maxEndDriftFrames
+  const threshold = policy.minAlignmentConfidence
 
   if (scenes.length === 0) {
     issues.push({ level: 'error', code: 'NO_SCENES', message: 'Timeline hat keine Szenen.' })
@@ -79,11 +83,11 @@ export function qcTimeline(timeline: Timeline, opts: QcOptions = {}): QcReport {
   // letzte Szene endet innerhalb max. eines Frames zur echten Audio-Dauer
   const lastEnd = scenes[scenes.length - 1]!.end_ms
   const endDrift = Math.abs(audio_duration_ms - lastEnd)
-  if (endDrift > f) {
+  if (endDrift > driftTolerance) {
     issues.push({
       level: 'error',
       code: 'END_DRIFT',
-      message: `Endzeit weicht ${endDrift} ms von der Audio-Dauer ab (max. ${f} ms = 1 Frame).`,
+      message: `Endzeit weicht ${endDrift} ms von der Audio-Dauer ab (max. ${driftTolerance} ms = ${policy.maxEndDriftFrames} Frame(s)).`,
     })
   }
 

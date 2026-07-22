@@ -55,7 +55,7 @@
   "target_duration_sec": 600,
   "target_wpm": 138,
   "aspect_ratio": "16:9",
-  "fps": 30,
+  "fps": 24,
 
   "hook_style": "cold open with an unsettling question, no greeting",
   "narrative_framework": "open loop → tension → reveal → applied payoff",
@@ -64,26 +64,30 @@
     "no mid-video subscribe begging"
   ],
 
+  "visual_preset": "cinematic_editorial",
+
   "visual_style_bible": {
     "palette": ["#070B1E", "#0E1430", "#38E5FF", "#7B81FF"],
-    "line_width": "consistent 3px stickman line",
-    "backgrounds": "deep navy with subtle grain, minimal negative space",
-    "typography": "clean geometric sans, sparse on-screen text",
+    "line_width": "n/a — painterly 2.5D editorial, no line-art",
+    "backgrounds": "cinematic navy environments, volumetric light, film grain, shallow depth",
+    "typography": "clean geometric sans, sparse on-screen text (added in renderer, not baked)",
     "safe_areas": "16:9 title-safe 90%, action-safe 93%",
     "negative_prompts": [
       "watermark",
       "extra limbs",
       "unreadable text",
       "brand logos",
-      "distorted faces"
+      "distorted faces",
+      "flat clip-art",
+      "cartoon stickman"
     ],
     "characters": [
       {
-        "character_id": "HR-EVERYMAN",
-        "name": "The Everyman",
-        "proportions": "simple stickman, round head, 5-head body ratio",
-        "clothing": "no clothing detail, pure line figure",
-        "face_details": "two dot eyes, no mouth unless needed",
+        "character_id": "HR-FIGURE",
+        "name": "The Observer",
+        "proportions": "semi-realistic human silhouette, fixed identity across scenes",
+        "clothing": "muted contemporary, low-detail, non-branded",
+        "face_details": "obscured / turned away — faceless brand rule",
         "reference_asset_ids": [],
         "seed": 424242
       }

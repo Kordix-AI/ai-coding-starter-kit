@@ -37,6 +37,31 @@ export const STAGE_REQUIRES_GATE: Partial<Record<Stage, Gate>> = {
   publish: 'G7', // Titel/Thumbnail/Metadaten vor Veröffentlichung
 }
 
+/**
+ * Änderungs-/Invalidierungs-Matrix: was muss bei einer Änderung neu erzeugt werden.
+ * Verhindert unnötige Neugenerierung UND veraltete Freigaben (Master-Prompt).
+ */
+export type ChangeKind =
+  | 'script'
+  | 'voice'
+  | 'timing'
+  | 'image_prompt'
+  | 'title'
+  | 'channel_profile'
+
+export const INVALIDATION_MATRIX: Record<ChangeKind, Stage[]> = {
+  script: ['audio', 'alignment', 'timeline', 'subtitles', 'assets', 'render', 'packaging'],
+  voice: ['audio', 'alignment', 'timeline', 'render'],
+  timing: ['timeline', 'subtitles', 'render'],
+  image_prompt: ['assets', 'render'],
+  title: ['packaging'],
+  channel_profile: ['storyboard', 'assets', 'render', 'packaging'], // feldabhängig; konservativ
+}
+
+export function stagesToInvalidate(change: ChangeKind): Stage[] {
+  return INVALIDATION_MATRIX[change]
+}
+
 /** Rekursiv stabile Serialisierung (Keys sortiert) — deterministisch für Hashing. */
 function stableStringify(v: unknown): string {
   if (v === null || typeof v !== 'object') return JSON.stringify(v) ?? 'null'
@@ -136,6 +161,23 @@ export class JobStateMachine {
   shouldSkip(stage: Stage, inputHash: string): boolean {
     const r = this.record(stage)
     return r.status === 'succeeded' && r.input_hash === inputHash
+  }
+
+  /**
+   * Wendet die Invalidierungs-Matrix an: betroffene Stufen → 'pending' (Hashes gelöscht),
+   * und Freigaben, die eine betroffene Stufe gaten, verfallen (Approved bindet an Version).
+   */
+  invalidate(change: ChangeKind): Stage[] {
+    const affected = stagesToInvalidate(change)
+    for (const stage of affected) {
+      const r = this.record(stage)
+      r.status = 'pending'
+      r.output_hash = undefined
+      r.input_hash = undefined
+      const gate = STAGE_REQUIRES_GATE[stage]
+      if (gate) this.gates.delete(gate)
+    }
+    return affected
   }
 
   snapshot(): { video_id: string; stages: StageRecord[]; gates: GateApproval[] } {

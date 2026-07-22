@@ -79,6 +79,11 @@ export const ChannelProfile = z.object({
   narrative_framework: z.string(),
   cta_rules: z.array(z.string()).default([]),
 
+  // verbindliches Visual-System des Kanals — steuert die Template-Auswahl.
+  // Hidden Rush = cinematic_editorial (2.5D, Hero-Frame-first, selektiv I2V);
+  // stickman_minimal = eigenes kostengünstiges Preset (nicht global erzwungen).
+  visual_preset: z.enum(['cinematic_editorial', 'stickman_minimal', 'flat_2d']),
+
   visual_style_bible: VisualStyleBible,
   tts: TtsConfig,
 

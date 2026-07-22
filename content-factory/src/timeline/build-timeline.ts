@@ -9,16 +9,45 @@ import type {
 } from '../schemas/index.js'
 import { computeBoundaries } from './scene-split.js'
 
-/** Standard-Zuordnung Erzählfunktion → visuelles Template (kostenbewusst, Stickman-first). */
-const TEMPLATE_BY_FUNCTION: Record<NarrativeFunction, VisualTemplate> = {
-  hook: 'stickman_character',
-  setup: 'stickman_character',
-  tension: 'two_character_interaction',
-  turn: 'symbolic_metaphor',
-  payoff: 'stickman_character',
-  cta: 'editor_typography',
-  transition: 'symbolic_metaphor',
+type VisualPreset = ChannelProfile['visual_preset']
+
+/**
+ * Template-Auswahl pro Visual-Preset des Kanals (nicht global).
+ * cinematic_editorial = Hidden Rush (Hero-Frame-first, 2.5D, selektiv I2V an Hook/Turn);
+ * stickman_minimal = kostengünstiges Preset.
+ */
+const TEMPLATE_MAPS: Record<VisualPreset, Record<NarrativeFunction, VisualTemplate>> = {
+  cinematic_editorial: {
+    hook: 'premium_i2v',
+    setup: 'still_parallax',
+    tension: 'two_character_interaction',
+    turn: 'premium_i2v',
+    payoff: 'object_closeup',
+    cta: 'editor_typography',
+    transition: 'still_parallax',
+  },
+  stickman_minimal: {
+    hook: 'stickman_character',
+    setup: 'stickman_character',
+    tension: 'two_character_interaction',
+    turn: 'symbolic_metaphor',
+    payoff: 'stickman_character',
+    cta: 'editor_typography',
+    transition: 'symbolic_metaphor',
+  },
+  flat_2d: {
+    hook: 'symbolic_metaphor',
+    setup: 'minimal_diagram',
+    tension: 'symbolic_metaphor',
+    turn: 'symbolic_metaphor',
+    payoff: 'object_closeup',
+    cta: 'editor_typography',
+    transition: 'minimal_diagram',
+  },
 }
+
+/** I2V-Templates bekommen einen Video-Prompt (Plan; Ausführung erst nach Kosten-Gate G5). */
+const I2V_TEMPLATES: ReadonlySet<VisualTemplate> = new Set(['premium_i2v'])
 
 const MUSIC_BY_FUNCTION: Record<NarrativeFunction, string> = {
   hook: 'tension_low',
@@ -72,7 +101,7 @@ export function buildTimeline(input: {
     const end = boundaries[idx + 1]!
     const scriptSeg = script.segments.find((s) => s.segment_id === seg.segment_id)
     const fn: NarrativeFunction = scriptSeg?.narrative_function ?? 'setup'
-    const template = TEMPLATE_BY_FUNCTION[fn]
+    const template = TEMPLATE_MAPS[channel.visual_preset][fn]
     const words = alignment.words
       .filter((w) => w.start_ms >= start && w.start_ms < end)
       .map((w) => ({ text: w.text, start_ms: w.start_ms, end_ms: w.end_ms, confidence: w.confidence }))
@@ -89,7 +118,9 @@ export function buildTimeline(input: {
       visual_template: template,
       visual_description: `${template} — ${fn}`,
       image_prompt: composeImagePrompt(channel, template, seg.text),
-      video_prompt: null,
+      video_prompt: I2V_TEMPLATES.has(template)
+        ? `subtle motion for ${template}: ${seg.text.slice(0, 80)}`
+        : null,
       reference_asset_ids: [],
       motion: 'slow_push_in',
       camera: 'medium_wide',

@@ -8,7 +8,9 @@ describe('channel profiles', () => {
     expect(p.channel_id).toBe('hidden-rush')
     expect(p.output_language).toBe('en')
     expect(p.content_risk_class).toBe('medium')
-    expect(p.visual_style_bible.characters[0]?.character_id).toBe('HR-EVERYMAN')
+    expect(p.visual_preset).toBe('cinematic_editorial')
+    expect(p.fps).toBe(24)
+    expect(p.visual_style_bible.characters[0]?.character_id).toBe('HR-FIGURE')
   })
 
   it('lädt ein ZWEITES Profil ohne Kerncode-Änderung (nur neue JSON-Datei)', () => {
